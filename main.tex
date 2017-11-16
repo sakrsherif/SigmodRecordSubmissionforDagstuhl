@@ -1,0 +1,60 @@
+\documentclass[preprint]{sig-alternate-10pt}
+
+\usepackage{alltt}
+\usepackage{balance}
+
+\usepackage{etoolbox}
+\apptocmd{\thebibliography}{\scriptsize}{}{}
+
+\usepackage[paperwidth=8.5in,paperheight=11in,margin=1in]{geometry}
+
+
+\begin{document}
+
+\title{Dagstuhl Seminar on Big Stream Processing}
+
+\numberofauthors{5}
+\newcommand*{\emailn}[1]{\textsf{\normalsize #1}}
+
+\author{
+\alignauthor
+Sherif Sakr\\
+  \affaddr{KSAU-HS and UNSW}
+  \emailn{ssakr@cse.unsw.edu.au}
+\alignauthor
+Tilmann Rabl\\
+  \affaddr{TU Berlin, Germany}\\
+  \emailn{rabl@tu-berlin.de}
+\alignauthor
+Martin Hirzel\\
+  \affaddr{IBM Research AI, USA}\\
+  \emailn{hirzel@us.ibm.com}
+\and
+\alignauthor
+Paris Carbon\\
+  \affaddr{KTH, Sweden}\\
+  \emailn{parisc@kth.se}
+\and
+\alignauthor
+Martin Strohbach\\
+  \affaddr{AGT International, Switzerland}\\
+  \emailn{mstrohbach@agtinternational.com}}
+
+
+\maketitle
+
+
+\input{overview}
+\section{Tutorials}
+\input{Tutorial-Applications}
+\input{Tutorial-Systems}
+\input{Tutorial-Languages}
+\section{Working Groups}
+\input{WG-AppSystems}
+\input{WG-Languages}
+\input{conclusion}
+\bibliographystyle{abbrv}
+\balance
+\bibliography{biblio}
+
+\end{document}
