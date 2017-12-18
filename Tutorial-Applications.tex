@@ -1,3 +1,36 @@
-\subsection{Applications of Big Streaming Data}
+\subsection{IoT Stream Processing Applications}
 \begin{alltt}TODO\scriptsize 0.75/1 pages
 \end{alltt}
+As part of the application tutorial we have picked a specific class of streaming applications, i.e. IoT applications that are concerned with interpreting and conceptualizing sensor data in real-time. Here we describe applications in two distinct domains. The first domain relates to Sports and Entertainment in which quantifiable insights about sports and entertainment events are created from sensors deployed at a venue. The second domain relates to Industry 4.0 in which sensor data from production machines is used to reduce energy costs and operations and maintenance costs. 
+
+The application examples are based on commercial deployments that run on top of AGT International's \footnote{\url{http://www.agtinternational.com}} Internet of Things Analytics (IoTA) platform. IoTA is an IoT-based AI platform that provides cognitive and emotional computing skills to understand complex physical environments in real-time.
+
+We use the two domains for two purposes: (1) With the applications described for sports and entertainment we illustrate the specific characteristics of IoT streaming applications and the associated challenge of choosing an appropriate streaming infrastructure. (2) We use the applications for Industry 4.0 to illustrate how stream processing applications can be benchmarked using the HOBBIT benchmarking platform.
+
+\subsubsection{Sports and Entertainment}
+Applications we consider in the sports and entertainment domain provide real-time narratives about key events that are happening at such an event. This way it is not necessary to watch the whole event, but one can be notified in real-time about highlights at the event based on insights created form the sensor data. For instance AGT International provides such analytic skills for the Basketball Euroleague\footnote{\url{http://www.euroleague.net/}} teams. This is achieved by using smart shirts worn by players, microphones deployed to monitor the audience, and using cameras and wristbands. These sensors in combination with play-by-play data allows IoTA to recognize behaviour, emotions, activities, actions, pressure and other physical aspects about a game. These insights are related to players, teams, fans and family and provided as semantic data streams that can for instance be used for distribution via social media. A more technical overview of the IoTA platform and based on this application is available online\footnote{\url{https://www.portal.reinvent.awsevents.com/connect/sessionDetail.ww?SESSION_ID=14367}}
+%Figure Basketball ?
+
+Other applications in this domain include mixed martial art fights, professional bull riding and the detection of event highlights at mass sport events such as the Color Run. For mixed martial arts AGT uses, among others, sensors embedded in fighters glove \footnote{\url{http://mmajunkie.com/2017/12/ufc-219-artificial-intelligence-glove-sensors-approved-by-nsac}} based on which a range of insights including punch strength and fighter's stress level are derived. Here it is important that insights can be delivered in real-time without noticeable delay compared to a broadcast of the fight. The full analytical capabilities and application scenario has been described by AGT International's CEO Mati Kochavi as part of the keynote at this years AWS re:invent conference\footnote{\url{https://youtu.be/vataVq9gY_o}}
+
+\begin{alltt}TODO:\scriptsize add UFC keynote picture: \url{https://pbs.twimg.com/media/DP6L8S9XkAYFMCw.jpg}
+\end{alltt}
+
+In professional bull riding, AGT uses sensors that are attached to riders and bulls in order to quantify the bull's and rider's performance\footnote{\url{https://www.businesswire.com/news/home/20170822006048/en/Heed-Accelerates-Growth-Ground-Breaking-Partnerships-Professional-Basketball}}. As this information is among others used for automatic scoring, it is of particular importance that analytic results are available as soon as the ride is finished. 
+
+In a similar fashion we use a range of wearable sensors for creating event highlights for participants at mass sport events. In the CPaas.io project we have developed an application that uses action cameras and fitness bands to automatically detect event highlights based on runner's activity, emotions, dance energy levels, and many more metrics. In this application real-time aspects include scenarios in which event highlights are being directly sent to friends of the participants. 
+%sent to friends of participatns
+
+\subsubsection{Industry 4.0}
+\subsubsection{Choosing the Streaming Infrastructure}
+When choosing a streaming infrastructure fulfilling the requirements of the above application scenarios, we face the following challenges
+\begin{itemize}
+\item No standard query language for streaming applications 
+\item Multitude of streaming technologies make it hard to identify appropriate technology
+\item JVM Legacy: ineffcient for distributed real-time processing
+\item Flexibility for Programming Languages
+\item Low Latencies and shortlived stream processing pipelines
+\item Framework efficiency
+\item Semantic mapping
+\end{itemize}
+\subsubsection{Benchmarking IoT Streaming Applications}
