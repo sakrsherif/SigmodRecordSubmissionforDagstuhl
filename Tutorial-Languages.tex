@@ -1,4 +1,30 @@
 \subsection{Stream Processing Languages}
+
+This tutorial gave an overview of several styles of stream processing
+languages. The tutorial illustrated each style (e.g., relational,
+synchronous, etc.) with a representative example language. Of course,
+for each style, there is an entire family of languages, and this
+tutorial did not aim to be exhaustive.
+
 \begin{alltt}TODO\scriptsize 0.75/1 pages
-- citation to make bibtex happy: \cite{arasu_babu_widom_2006}
+- DSELs: \cite{hudak_1998}
+- definitions:
+  - A stream is a conceptually infinite ordered sequence
+    of data items.
+  - A streaming application is a computer program that continuously
+    ingests input streams and produces output streams.
+  - A stream processing language is a DSL (domain-specific language)
+    for writing streaming applications.
+- Streaming SQL: CQL \cite{arasu_babu_widom_2006}
+- Synchronous Dataflow: StreamIt \cite{thies_et_al_2002}
+- Explicit stream graph: SPL \cite{hirzel_schneider_gedik_2017}
+- Complex Events: MatchRegex \cite{hirzel_2012}
+- Reactive: ActiveSheets \cite{vaziri_et_al_2014}
+- Controlled Natural Language: META \cite{arnold_et_al_2016}
 \end{alltt}
+
+Overall, the field of stream processing languages is diverse.  Efforts
+to consolidate and standardize should be informed by an overview of
+the state of the art, which this tutorial provided. The easier
+streaming languages are to use, the more they contribute to the
+democratization of streaming.
