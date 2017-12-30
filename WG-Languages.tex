@@ -4,23 +4,68 @@
 - introductory paragraph
   - working group focused on identifying challenges
   - see Section~\ref{sec:tut_lang} for definition and survey
-- Challenge: Variety of data (~0.25 pages)
+- Challenge: Variety of data models (~0.25 pages)
+  - definitions
+    - data model organizes elements of data with respect to their
+      semantics, their logical composition into data structures,
+      and their physical representation
   - why is it important
+    - variety of data models driven by the producers and consumers
+      of streaming application, as well as internal conversion and
+      processing needs
   - why difficult
-  - what's unique (to streaming and to languages)
-  - goal
+    - little consensus among streaming languages: StreamIt single
+      number, CQL tuple, RSP entire self-describing graph
+  - what's unique to streaming
+    - data model affects speed of serialization, transmission,
+      compression, as well as dynamic checks for the presence
+      or absence of certain fields
+    - in online setting, no time for separate batch data integration
+  - what's unique to languages
+    - for some languages, the design revolves primarily around
+      the data model, e.g., relational algebra on tuples, or
+      path expressions on XML trees or RDF graphs
+    - compiler opportunity for error messages and optimizations
+  - goal(s)
+    - language supports different data models
+    - programmer uses logical data model that is easiest for them
+    - compiler and runtime system choose best physical
+      representation and transform program accordingly
   - metrics
+    - expressive power, like relational completeness
+    - performance (throughput, latency, resource consumption)
 - Challenge: Veracity with simplicity (~0.25 pages)
+  - definitions
+    - conformance to the facts, accuracy
   - why is it important
+    - sensor limitations (accuracy, energy, memory)
+    - long-running and loosely coupled, sources come and go
+    - approximate algorithms, stream mining, and stream learning
   - why difficult
-  - what's unique (to streaming and to languages)
-  - goal
+    - lack of ground truth or gold standard
+    - hard to think about and test for every eventuality
+  - what's unique to streaming
+    - no global clock in distributed setting
+    - real-time response with incomplete information
+    - in online setting, no time for separate batch data cleansing
+  - what's unique to languages
+    - for some languages, handling of uncertainty pervades design
+    - can limit operators to support revision and retraction
+    - probabilistic programming languages can track uncertainty
+  - goal(s)
+    - minimize compounding uncertainty
+    - quality-aware and adaptive
+    - keep language simple and expressive
   - metrics
+    - precision, recall, f-score, Pareto optimality
+    - optimizing vs. satisficing
 - Challenge: Adoption (~0.25 pages)
+  - definitions
   - why is it important
   - why difficult
-  - what's unique (to streaming and to languages)
-  - goal
+  - what's unique to streaming
+  - what's unique to languages
+  - goal(s)
   - metrics
 - closing paragraph
 \end{alltt}
