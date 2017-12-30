@@ -14,8 +14,10 @@
       of streaming application, as well as internal conversion and
       processing needs
   - why difficult
-    - little consensus among streaming languages: StreamIt single
-      number, CQL tuple, RSP entire self-describing graph
+    - little consensus among streaming languages:
+      StreamIt single number~\cite{thies_et_al_2002},
+      CQL tuple of numbers~\cite{arasu_babu_widom_2006},
+      C-SPARQL entire self-describing graph~\cite{barbieri_et_al_2009}
   - what's unique to streaming
     - data model affects speed of serialization, transmission,
       compression, as well as dynamic checks for the presence
@@ -38,20 +40,21 @@
   - definitions
     - conformance to the facts, accuracy
   - why is it important
-    - sensor limitations (accuracy, energy, memory)
+    - sensor limitations (precision, energy, memory)
     - long-running and loosely coupled, sources come and go
-    - approximate algorithms, stream mining, and stream learning
+    - approximate algorithms~\cite{babcock_et_al_2002}, stream mining~\cite{gaber_zaslavsky_krishnaswamy_2005}
   - why difficult
     - lack of ground truth or gold standard
-    - hard to think about and test for every eventuality
+    - hard to anticipate and test every eventuality
   - what's unique to streaming
-    - no global clock in distributed setting
-    - real-time response with incomplete information
-    - in online setting, no time for separate batch data cleansing
+    - real-time response without having seen all the data
+    - due to online setting, no time for separate batch data cleansing
+    - in distributed setting, no global clock~\cite{lamport_1978}
   - what's unique to languages
-    - for some languages, handling of uncertainty pervades design
+    - studies in pervasive handling of uncertainty in
+      stream-relational algebra \cite{ali_et_al_2009} \cite{tran_et_al_2010}
     - can limit operators to support revision and retraction
-    - probabilistic programming languages can track uncertainty
+    - probabilistic programming languages can track uncertainty~\cite{gordon_et_al_2014}
   - goal(s)
     - minimize compounding uncertainty
     - quality-aware and adaptive
@@ -61,11 +64,28 @@
     - optimizing vs. satisficing
 - Challenge: Adoption (~0.25 pages)
   - definitions
+    - adoption in the sense of broad acceptance and use
   - why is it important
+    - adoption of a streaming language would drive adoption of
+      streaming technologies in general
+    - more attractive for student to invest time to learn
+    - broader pool of skilled people to hire for company
+    - drive libraries, tools, benchmarks, optimizations, etc.
   - why difficult
+    - large variety of approaches, none is widely adopted
   - what's unique to streaming
+    - domain is young, fast-moving, prone to vendor lock-in
   - what's unique to languages
+    - no consensus on which features are the most important
+      and which can be omitted to reduce complexity
+    - need well-defined semantics (counter DSEL trend)
   - goal(s)
+    - community agrees upon few languages that get widely adopted
   - metrics
+    - number of users: job postings, resumes, courses, LoC,
+      citations in papers, mentions in support forums, ...
+    - number of systems that support it, industry standard
 - closing paragraph
+  - we hope this summary of the working group discussion helps
+    guide future research in novel and impactful directions
 \end{alltt}
