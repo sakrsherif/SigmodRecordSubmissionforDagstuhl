@@ -6,19 +6,53 @@ synchronous, etc.) with a representative example language. Of course,
 for each style, there is an entire family of languages, and this
 tutorial did not aim to be exhaustive.
 
+A \emph{stream} is a conceptually infinite ordered sequence of data
+items, and a \emph{streaming application} is a computer program that
+continuously ingests input streams and produces output streams.  A
+\emph{stream processing language} is a DSL (domain-specific language)
+for writing streaming applications. Some stream processing languages
+are DSELs (domain-specific embedded languages~\cite{hudak_1998}),
+meaning they are advanced library hosted by a general-purpose
+language. But for clarity, this tutorial focused on stand-alone (not
+embedded) DSLs.
+
+\emph{Streaming SQL} dialects are an attempt to be for streaming data
+what SQL has been for data stored in a database. A prominent example
+is CQL~\cite{arasu_babu_widom_2006}. CQL extends the familiar
+select-from-where syntax of SQL with windows that turn the recent
+history of a stream into a relation, as well as with constructs for
+watch the changes happening to a relation over time and deriving a
+stream from them. CQL is implemented via translation into a streaming
+extension of relational algebra.
+
+\emph{Synchronous Dataflow} languages offer streaming with
+deterministic concurrency for reliable embedded control systems. An
+example is StreamIt~\cite{thies_et_al_2002}, where streaming
+applications are graphs composed of only four constructs: individual
+operators, pipe\-lines of operators, feedback loops, and split-merge
+topologies that implement task parallelism. The StreamIt compiler
+determines a repeating steady-state schedule, then exploits that for
+optimizations such as operator fusion and data parallelism.
+
+\emph{Big-Data Streaming} languages focus on large-scale stream
+processing applications with a variety of data and processing
+requirements. An example is SPL~\cite{hirzel_schneider_gedik_2017}.
+SPL offers parallelism across both multi-core machines and
+multi-machine clusters. SPL addresses a variety of data requirements
+with rich data types and assorted parsing operators. And SPL addresses
+a variety of processing requirements by letting programmers write new
+first-class streaming operators in their language of choice.
+
+\emph{Complex Event} patterns describe how to detect higher-level
+events from a sequence of low-level events in a stream. In general
+computing, the most widely used formalism for patterns over sequences
+is regular expressions. Therefore, MatchRegex uses regular expressions
+for patterns over streams~\cite{hirzel_2012}. Match\-Regex uses simple
+predicates over stream data items to detect low-level events. In
+addition, it supports a variety of aggregation functions over events
+to both guide and summarize matches.
+
 \begin{alltt}TODO\scriptsize 0.75/1 pages
-- DSELs: \cite{hudak_1998}
-- definitions:
-  - A stream is a conceptually infinite ordered sequence
-    of data items.
-  - A streaming application is a computer program that continuously
-    ingests input streams and produces output streams.
-  - A stream processing language is a DSL (domain-specific language)
-    for writing streaming applications.
-- Streaming SQL: CQL \cite{arasu_babu_widom_2006}
-- Synchronous Dataflow: StreamIt \cite{thies_et_al_2002}
-- Explicit stream graph: SPL \cite{hirzel_schneider_gedik_2017}
-- Complex Events: MatchRegex \cite{hirzel_2012}
 - Reactive: ActiveSheets \cite{vaziri_et_al_2014}
 - Controlled Natural Language: META \cite{arnold_et_al_2016}
 \end{alltt}
