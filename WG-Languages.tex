@@ -1,51 +1,53 @@
 \subsection{Languages and Abstractions}\label{sec:wg_lang}
 
+Based on the definitions and survey from the corresponding tutorial
+(see Section~\ref{sec:tut_lang}), this working group identified and
+described three challenges faced by stream processing languages.
+
+\emph{Variety of data models} is a challenge for stream processing
+languages. A data model organizes elements of data with respect to
+their semantics, their logical composition into data structures, and
+their physical representation. Producers and consumers of streams to
+and from a streaming application dictate data models it must handle,
+and the application's own conversion and processing needs drive
+additional data-model variety.  There is no consensus on what a stream
+data item is. At one extreme, in StreamIt, each data item is a simple
+number~\cite{thies_et_al_2002}, while at the other extreme, C-SPARQL
+streams entire self-describing graphs~\cite{barbieri_et_al_2009}.
+Streaming languages have so far failed to consolidate on a data model
+because data-model variety is a difficult challenge.
+
+Data-model variety causes streaming-specific issues, since the data
+model affects the speed of serialization, transmission, compression,
+and dynamic checks for the presence or absence of certain fields, and
+because the online setting leaves no time for separate batch data
+integration. Some stream processing languages are designed around
+their data model, e.g., CQL on tuples~\cite{arasu_babu_widom_2006} or
+path expressions on XML trees~\cite{diao_et_al_2002}. Furthermore, the
+data model enables streaming-language compilers to provide helpful
+error messages and optimizations.
+
+The goal is for streaming languages to let the programmer use the
+logical data model they find most convenient while letting the
+compiler choose the best physical representation. Metrics of success
+are the expressive power of the language along with its throughput,
+latency, and resource consumption.
+
+\emph{Veracity with simplicity} is a challenge for stream processing
+languages. Veracity means producing accurate and factual results, and
+simplicity means avoiding unnecessary language complexity. There are
+several reasons why streaming veracity is hard. Sensors producing
+input data have limitations on precision, energy, and memory. In
+long-running and loosely-coupled streaming applications, stream
+sources come and go. And approximate stream
+algorithms~\cite{babcock_et_al_2002} and stream
+mining~\cite{gaber_zaslavsky_krishnaswamy_2005} introduce additional
+uncertainty. This is compounded by the lack of ground truth in an
+online setting, and by the difficulty of anticipating and testing
+every eventuality.
+
 \begin{alltt}TODO\scriptsize 1 page
-- introductory paragraph
-  - working group focused on identifying challenges
-  - see Section~\ref{sec:tut_lang} for definition and survey
-- Challenge: Variety of data models (~0.25 pages)
-  - definitions
-    - data model organizes elements of data with respect to their
-      semantics, their logical composition into data structures,
-      and their physical representation
-  - why is it important
-    - variety of data models driven by the producers and consumers
-      of streaming application, as well as internal conversion and
-      processing needs
-  - why difficult
-    - little consensus among streaming languages:
-      StreamIt single number~\cite{thies_et_al_2002},
-      CQL tuple of numbers~\cite{arasu_babu_widom_2006},
-      C-SPARQL entire self-describing graph~\cite{barbieri_et_al_2009}
-  - what's unique to streaming
-    - data model affects speed of serialization, transmission,
-      compression, as well as dynamic checks for the presence
-      or absence of certain fields
-    - in online setting, no time for separate batch data integration
-  - what's unique to languages
-    - for some languages, the design revolves primarily around
-      the data model, e.g., relational algebra on tuples, or
-      path expressions on XML trees or RDF graphs
-    - compiler opportunity for error messages and optimizations
-  - goal(s)
-    - language supports different data models
-    - programmer uses logical data model that is easiest for them
-    - compiler and runtime system choose best physical
-      representation and transform program accordingly
-  - metrics
-    - expressive power, like relational completeness
-    - performance (throughput, latency, resource consumption)
 - Challenge: Veracity with simplicity (~0.25 pages)
-  - definitions
-    - conformance to the facts, accuracy
-  - why is it important
-    - sensor limitations (precision, energy, memory)
-    - long-running and loosely coupled, sources come and go
-    - approximate algorithms~\cite{babcock_et_al_2002}, stream mining~\cite{gaber_zaslavsky_krishnaswamy_2005}
-  - why difficult
-    - lack of ground truth or gold standard
-    - hard to anticipate and test every eventuality
   - what's unique to streaming
     - real-time response without having seen all the data
     - due to online setting, no time for separate batch data cleansing
