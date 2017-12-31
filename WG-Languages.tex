@@ -46,35 +46,39 @@ uncertainty. This is compounded by the lack of ground truth in an
 online setting, and by the difficulty of anticipating and testing
 every eventuality.
 
+Veracity causes streaming-specific issues, since it requires accurate
+real-time responses without having seen all the data, and because the
+online setting leaves no time for separate batch data cleansing. Also,
+streaming is often used in a distributed setting, where there can be
+no global clock~\cite{lamport_1978}. Some streaming languages are
+studies in handling uncertainty on top of stream-relational
+algebra~\cite{ali_et_al_2009,tran_et_al_2010}, but restricting stream
+operators to support retraction or uncertainty propagation limits
+expressiveness and raises complexity. A more general solution may use
+probabilistic programming to handle uncertainty in a principled
+way~\cite{gordon_et_al_2014}.
+
+The goal is for streaming languages to help minimize compounding
+uncertainty by being quality-aware and adaptive while remaining
+simple, expressive, and fast. This inherently leads to multiple
+metrics (e.g., precision, recall, throughput, latency) and
+harder-to-quantify objectives (simplicity, expressiveness). One can
+maximize one set of metrics while satisfycing a threshold on the
+others, or one can seek Pareto-optimal
+solutions~\cite{zhang_hirzel_grove_2016}.
+
+\emph{Adoption} is a challenge for stream processing languages: while
+there are many of them, none have reached broad acceptance and use.
+The community should care about adoption of streaming languages
+because it would drive adoption of streaming technologies in general.
+A widely-adopted language is more attractive for students to learn,
+leading to a bigger pool of skilled people to hire for companies.
+Furthermore, a widely-adopted streaming language would drive more
+mature libraries, tools, benchmarks, optimizations, etc. The lack of a
+dominant language indicates that adoption is a difficult goal.
+
 \begin{alltt}TODO\scriptsize 1 page
-- Challenge: Veracity with simplicity (~0.25 pages)
-  - what's unique to streaming
-    - real-time response without having seen all the data
-    - due to online setting, no time for separate batch data cleansing
-    - in distributed setting, no global clock~\cite{lamport_1978}
-  - what's unique to languages
-    - studies in pervasive handling of uncertainty in
-      stream-relational algebra \cite{ali_et_al_2009} \cite{tran_et_al_2010}
-    - can limit operators to support revision and retraction
-    - probabilistic programming languages can track uncertainty~\cite{gordon_et_al_2014}
-  - goal(s)
-    - minimize compounding uncertainty
-    - quality-aware and adaptive
-    - keep language simple and expressive
-  - metrics
-    - precision, recall, f-score, Pareto optimality
-    - optimizing vs. satisficing
 - Challenge: Adoption (~0.25 pages)
-  - definitions
-    - adoption in the sense of broad acceptance and use
-  - why is it important
-    - adoption of a streaming language would drive adoption of
-      streaming technologies in general
-    - more attractive for student to invest time to learn
-    - broader pool of skilled people to hire for company
-    - drive libraries, tools, benchmarks, optimizations, etc.
-  - why difficult
-    - large variety of approaches, none is widely adopted
   - what's unique to streaming
     - domain is young, fast-moving, prone to vendor lock-in
   - what's unique to languages
