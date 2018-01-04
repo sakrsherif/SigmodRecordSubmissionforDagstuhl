@@ -1,3 +1,103 @@
 \subsection{Applications and Systems}
-\begin{alltt}TODO\scriptsize 1 page
-\end{alltt}
+
+In this working group, participants discussed characteristics and open 
+challenges of stream processing systems. The discussions mainly focused on 
+the topics state management, transactions, and pushing computation to the edge.
+
+\emph{State management}
+
+Modern streaming systems are stateful, which means they can remember the state 
+of the stream to some extent. A simple example is a counting operator that 
+counts the number of elements seen so far. While even simple state like this 
+poses several challenges in streaming setups (such as fault tolerance and 
+consistency), many use cases call for more advanced state management 
+capabilities. An example is the combination of streaming and batch data. This
+is for example required when combining the history of a user with her current
+activity or when finding matching advertisement campaigns with current activity
+a popular example of such a setup is modeled in the Yahoo! Streaming 
+Benchmark~\cite{Chintapalli2016BenchmarkingSC}. Today, most setups deal with
+such challenges by combining different systems (e.g., a key value store for
+state and a streaming system for processing), however, it is desirable to have 
+both in a single system for consistency and manageability reasons. 
+
+State can be considered the equivalent of a table in a database system. As a 
+result, besides the combination of stream and state, several high level
+operations can be identified: conversion of streams to tables (e.g., storing 
+a stream), conversion of tables to streams (e.g., scanning a table), as well 
+operations only on tables or streams (joins, filters, etc.). The management of 
+state opens the design space in between existing stream processing systems and 
+database systems, which has only been partially explored by current systems.
+In contrast to database systems, stream systems typically operate in a reactive
+manner, i.e., they have no control over the incoming data stream, specifically, 
+they do not control and define the consistency and order semantics in the 
+stream. This requires advanced notions of time and order as for example 
+specified for streams in the dataflow model \cite{43864}, for state and stream
+this remains an open field of research. 
+
+
+\emph{Transactions}
+
+
+Transactions on traditional dbs: data stays, computation moves. 
+Transactions in streaming systems: data moves to the computation.
+
+Ways current systems are (ab)used:
+Use Spark for computation, and HBAse as a key value store where joining of data happens.
+FRaud detection: use a key-value store as a lookup table for checking fraudulent transactions
+Deduplication ot streams
+
+Open Questions
+
+Key question 1: Can the streaming systems do ACID (should!?) and if so, how they are different to traditional databases? Will we end up with a distributed SAP Hana (Hana SOE (scale-out) [vldb’15] )?
+
+Key question 2: Can we create streaming systems where we can have both the “ETL” and the transactional part implemented in one pipeline? If yes, what are i) the architectural changes required to current OLAP/OLTP systems, ii) and what are the required changes needed in a streaming system?
+
+
+Types of transactions
+One-tuple transactions
+Multi-tuple transactions. multiple tuples will make a transaction. All of them have to be consumed before the transaction can be committed. Problems arise when the we snapshot before all of the tuples have touched the state. (this could be solved with bundling all tuples in one (tuple or window) and then shipping that one to the streaming system).
+Other types?
+
+
+Key Question 4: We cannot rollback, nor enforce integrity constraints in a dataflow system (because both require two-phase commit, or TPC). We have a shared-nothing architecture. Could we implement rollback and integrity constraint checking with feedback loops? i.e., can we run a two-phase commit with feedback loops in a dataflow system? How we can possibly schedule transactions inside a dataflow, such that the schedule (order of operations) is serializable?
+
+\emph{Pushing computation to the edge}
+
+Assume that there are cars collecting data inside their local hard disk. The amount of data that is collected cannot be really sent and stored in a datacenter (too resource intensive, expensive or too slow). The concept of on demand data processing has been around since the early 2000s. The main idea is that the data should not be collected if no query is going to read it. Thus, we can use early filters/projections, etc., and adapt sampling frequency according to queries. 
+
+Fog and edge computing have been doing related work on this subject. There is a clear lack of existing systems that can achieve this goal. TUB folks have worked on a first version of this concept here. Manfred has talked about something very similar in his Dagstuhl talk and paper. 
+
+We should be able to declaratively specify/query what the information is needed from the sensors, and then a distributed streaming plan should be deployed. That plan should run on all sensors, and intermediate fog/edge and cloud nodes.
+
+We should be able to define a deployment of execution plans in the cloud, edge and fog as well as sensors. 
+
+What would be the influence of fog/cloud infrastructures to the design of streaming data systems? (any new features that we should introduce?)
+The systems WG think that this is worth researching.
+
+
+\emph{Other topics discussed} were ad hoc queries and graph stream processing.
+
+Thousands of queries coming and leaving. King.com has a solution that can dynamically connect and delete queries on a set of predefined statistics. See:  Standing Queries over a shared Flink pipeline (King) 
+
+
+Graph Stream Processing
+There are several ideas on how we can do graph processing. Typically, in proposed models we have streams of edge additions (and sometimes deletions) and single pass aggregations.
+
+A project (in progress) the KTH/ETH people have been developing so far computes single pass summaries (e.g., connected components, triangle counts etc.) on edge addition streams and also allows for neighborhood aggregations on windowed graph streams.
+Project: https://github.com/vasia/gelly-streaming
+
+A project worth looking is also Timely Dataflow by Frank McSherry. There are several interesting graph algorithms (traversal etc.) already implemented there.
+Some relevant theoretical model and data structures for graph streams has been defined by McGregor et.al.
+
+Some of the main challenges mentioned are:
+Persistent full graph state (vertex and edge state)
+Efficient graph state backend and compression (see HDT for compressed RDF graphs)
+Deletions of nodes and edges
+Multi-pass algorithms on windows
+Pattern matching on streaming graphs
+
+Sharing of intermediate results
+Assume that there are multiple queries that share some part of the computation. We would like to have a formal method of sharing intermediate results (or, materialized views). For this to  happen we need to have a sound algebraic representation of queries which is taken from a high-level language like streamSQL. UDFs make this problem much more challenging (because we cannot analyse the semantically-black boxes).
+
+Materialized views and query rewriting as solutions to such issues have been discussed here. There is also a similar approach in RDF streams: Operator-aware approach for boosting performance in RDF stream processing.
+
