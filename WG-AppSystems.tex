@@ -35,9 +35,17 @@ this remains an open field of research.
 
 \emph{Transactions}
 
+A further discussion topic where transactions in stream processing systems. 
+The main difference between traditional database transactions and stream 
+processing transactions is that in databases the computation moves and 
+data stays (in the system), in stream processing systems the computation stays
+and the data moves to the computation (and out again). 
 
-Transactions on traditional dbs: data stays, computation moves. 
-Transactions in streaming systems: data moves to the computation.
+Considereing state management, the form of transactions as applied in databases
+can also be used in a stream processing system, if the state is managed in a
+transactional way. However, the operations on streams themselves can be 
+transactional and then we
+
 
 Ways current systems are (ab)used:
 Use Spark for computation, and HBAse as a key value store where joining of data happens.
