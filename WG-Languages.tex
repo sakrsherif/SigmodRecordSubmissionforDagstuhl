@@ -11,10 +11,10 @@ their physical representation. Producers and consumers of streams to
 and from a streaming application dictate data models it must handle,
 and the application's own conversion and processing needs drive
 additional data-model variety.  There is no consensus on what a stream
-data item is. At one extreme, in StreamIt, each data item is a simple
-number~\cite{thies_et_al_2002}, while at the other extreme, C-SPARQL
+data item is. At one extreme, in \textsf{StreamIt}, each data item is a simple
+number~\cite{thies_et_al_2002}, while at the other extreme, \textsf{C-SPARQL}
 streams entire self-describing graphs~\cite{barbieri_et_al_2009}.
-Streaming languages have so far failed to consolidate on a data model
+Streaming languages have so far failed to consolidate on a unified data model
 because data-model variety is a difficult challenge.
 
 Data-model variety causes streaming-specific issues, since the data
@@ -25,12 +25,10 @@ integration. Some stream processing languages are designed around
 their data model, e.g., CQL on tuples~\cite{arasu_babu_widom_2006} or
 path expressions on XML trees~\cite{diao_et_al_2002}. Furthermore, the
 data model enables streaming-language compilers to provide helpful
-error messages and optimizations.
-
-The goal is for streaming languages to let the programmer use the
+error messages and optimizations. The goal is for streaming languages to let the programmer use the
 logical data model they find most convenient while letting the
 compiler choose the best physical representation. Metrics of success
-are the expressive power of the language along with its throughput,
+include the expressive power of the language along with its throughput,
 latency, and resource consumption.
 
 \emph{Veracity with simplicity} is a challenge for stream processing
@@ -52,13 +50,11 @@ online setting leaves no time for separate batch data cleansing. Also,
 streaming is often used in a distributed setting, where there can be
 no global clock~\cite{lamport_1978}. Some streaming languages are
 explorations in handling uncertainty on top of stream-relational
-algebra~\cite{ali_et_al_2009,tran_et_al_2010}, but restricting stream
+algebra~\cite{tran_et_al_2010}, but restricting stream
 operators to support retraction or uncertainty propagation limits
 expressiveness and raises complexity. A more general solution might use
 probabilistic programming to handle uncertainty in a principled
-way~\cite{gordon_et_al_2014}.
-
-The goal is for streaming languages to help minimize compounding
+way~\cite{gordon_et_al_2014}. The goal is for streaming languages to help minimize compounding
 uncertainty by being quality-aware and adaptive while remaining
 simple, expressive, and fast. This inherently leads to multiple
 metrics (e.g., precision, recall, throughput, latency) and
@@ -75,22 +71,19 @@ A widely-adopted language is more attractive for students to learn,
 leading to a bigger pool of skilled people to hire for companies.
 Furthermore, a widely-adopted language would drive more
 mature libraries, tools, benchmarks, and optimizations. The lack of a
-dominant language indicates that adoption is a difficult goal.
-
-Streaming as a domain is young, fast-moving, and prone to vendor
-lock-in. At the same time, not only is there no consensus on a
-streaming language, there is not even a consensus on which language
+dominant language indicates that adoption is a difficult goal. Streaming as a domain is a young, fast-moving, and prone to vendor
+lock-in. Meanwhile, there is, yet, neither consensus on a
+streaming language nor even a consensus on which language
 features are most important and which can be omitted to reduce
 complexity. Furthermore, several recent streaming systems have a DSEL,
 which tends to have less well-isolated semantics and more
-host-language dependencies than a stand-alone DSL.
-
-The goal is for the community to agree upon one or a few languages that get
+host-language dependencies than a stand-alone DSL. The goal is for the community to agree upon one or a few languages that get
 widely adopted. Metrics for language adoption include lines of code,
 as well as mentions in resumes, job posting, courses, and support
 forums. Adoption can also be measured by the number of systems that
 support a language, open-source and open-governance implementations,
 and ultimately, an industry standard.
-
+\iffalse
 We hope this summary of our working group discussion helps guide
 future streaming-language research in novel and impactful directions.
+\fi
