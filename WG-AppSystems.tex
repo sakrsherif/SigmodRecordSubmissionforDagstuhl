@@ -6,9 +6,9 @@ the topics of state management, transactions and pushing computation to the edge
 
 \emph{State management} Modern streaming systems are stateful, which means they can remember the state
 of the stream to some extent. A simple example is a counting operator that
-counts the number of elements seen so far. While even simple state like this
+counts the number of elements seen so far. While even a simple state like this
 poses several challenges in streaming setups (such as fault tolerance and
-consistency), many use cases call for more advanced state management
+consistency), many use cases require more advanced state management
 capabilities. An example is the combination of streaming and batch data. This
 is for example required when combining the history of a user with her current
 activity or when finding matching advertisement campaigns with current activity
@@ -48,7 +48,7 @@ field of research.
 
 By \emph{pushing computation to the edge} of a network, stream processing can
 be highly distributed and decentralized. This is very useful when preprocessing
-or filtering can be done without a centralized view of the data. Especially, in
+or filtering can be done without a centralized view of the data. This is especially true in
 setups with high communication cost or slow connections (e.g., mobile
 connections), it makes sense to not send all data to a central server, but
 distribute the computation. A logical first step is filtering, but aggregations
@@ -62,4 +62,4 @@ the architecture of systems to support these use cases.\fi
 \emph{Other topics discussed} were ad hoc queries and graph stream processing.
 Most current systems only discuss long running queries, but in many use cases
 (e.g., sports, automotive) streams can be short lived as can be stream queries.
-\fi
+\fi 

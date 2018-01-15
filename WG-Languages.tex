@@ -10,8 +10,8 @@ their semantics, their logical composition into data structures, and
 their physical representation. Producers and consumers of streams to
 and from a streaming application dictate data models it must handle,
 and the application's own conversion and processing needs drive
-additional data-model variety.  There is no consensus on what a stream
-data item is. At one extreme, in \textsf{StreamIt}, each data item is a simple
+additional data-model variety.  There is no consensus on the definition of a stream
+data item. At one extreme, in \textsf{StreamIt}, each data item is a simple
 number~\cite{thies_et_al_2002}, while at the other extreme, \textsf{C-SPARQL}
 streams entire self-describing graphs~\cite{barbieri_et_al_2009}.
 Streaming languages have so far failed to consolidate on a unified data model
@@ -65,16 +65,16 @@ solutions~\cite{zhang_hirzel_grove_2016}.
 
 \emph{Adoption} is a challenge for stream processing languages: while
 there are many languages, none have reached broad acceptance and use.
-The community should care about adoption of streaming languages
-because it would drive adoption of streaming technologies in general.
+The community should care about the adoption of streaming languages
+because it would drive the adoption of streaming technologies in general.
 A widely-adopted language is more attractive for students to learn,
 leading to a bigger pool of skilled people to hire for companies.
 Furthermore, a widely-adopted language would drive more
 mature libraries, tools, benchmarks, and optimizations. The lack of a
-dominant language indicates that adoption is a difficult goal. Streaming as a domain is a young, fast-moving, and prone to vendor
+dominant language indicates that adoption is a difficult goal. Streaming as a domain is a young, fast-moving and prone to vendor
 lock-in. Meanwhile, there is, yet, neither consensus on a
 streaming language nor even a consensus on which language
-features are most important and which can be omitted to reduce
+features are the most important and which can be omitted to reduce
 complexity. Furthermore, several recent streaming systems have a DSEL,
 which tends to have less well-isolated semantics and more
 host-language dependencies than a stand-alone DSL. The goal is for the community to agree upon one or a few languages that get
@@ -86,4 +86,4 @@ and ultimately, an industry standard.
 \iffalse
 We hope this summary of our working group discussion helps guide
 future streaming-language research in novel and impactful directions.
-\fi
+\fi 
