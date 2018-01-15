@@ -41,9 +41,9 @@ and the data moves to the computation (and out again). Considering state managem
 can also be used in a stream processing system, if the state is managed in a
 transactional way. However, the operations on streams themselves can be
 transactional and then we can differentiate between single tuple transactions
-and multiple tuple transactions. For multiple tuple transactions, the
+and multiple tuple transactions (possibly accessing multiple keys in a partitioned operator state space). For multiple tuple transactions, the
 transaction can only commit when all tuples are consumed. The tuples then have
-to pass the whole operator graph or at least the transactional subgraph. The semantics of transactions on streams is currently still an open
+to traverse the whole operator graph or at least the transactional subgraph. The semantics of transactions on streams is currently still an open
 field of research.
 
 By \emph{pushing computation to the edge} of a network, stream processing can
