@@ -6,15 +6,14 @@ synchronous, etc.) with a representative example language. Of course,
 for each style, there is an entire family of languages, and this
 tutorial did not aim to be exhaustive.
 
-In general, a \emph{stream} is a conceptually infinite ordered sequence of data
-items, and a \emph{streaming application} is a computer program that
-continuously ingests input streams and produces output streams.  A
-\emph{stream processing language} is a DSL (domain-specific language)
-for writing streaming applications. Some stream processing languages
-are DSELs (do\-main-specific embedded languages~\cite{hudak_1998}),
-which build on a general-purpose host language to obviate the need for
-a dedicated compiler. For clarity, this tutorial focused on
-stand-alone DSLs, not DSELs.
+In general, a \emph{stream} is a conceptually infinite ordered
+sequence of data items, and a \emph{streaming application} is a
+computer program that continuously ingests input streams and produces
+output streams.  A \emph{stream processing language} is a DSL
+(domain-specific language) for writing streaming applications.  For
+clarity, this tutorial focused on stand-alone DSLs, as opposed to
+embedded DSLs~\cite{hudak_1998} that build on a general-purpose host
+language to obviate the need for a dedicated compiler.
 
 \emph{Streaming SQL} dialects are an attempt to be for streaming data
 what SQL has been for data stored in a database. A prominent example
