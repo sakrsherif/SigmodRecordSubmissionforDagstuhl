@@ -18,27 +18,27 @@ stand-alone DSLs, not DSELs.
 
 \emph{Streaming SQL} dialects are an attempt to be for streaming data
 what SQL has been for data stored in a database. A prominent example
-is \textsf{\small CQL}~\cite{arasu_babu_widom_2006}. \textsf{\small CQL} extends the familiar
+is \name{CQL}~\cite{arasu_babu_widom_2006}, which extends the familiar
 select-from-where syntax of SQL with windows that turn the recent
 history of a stream into a relation, as well as with constructs that
 watch the changes happening to a relation over time and derive a
-stream from them. \textsf{\small CQL} is implemented via translation into a streaming
+stream from them. \name{CQL} is implemented via translation into a streaming
 extension of relational algebra.
 
 \emph{Synchronous Dataflow} languages offer streaming with
 deterministic concurrency for reliable embedded control systems. An
-example is \textsf{\small StreamIt}~\cite{thies_et_al_2002}, where streaming
+example is \name{StreamIt}~\cite{thies_et_al_2002}, where streaming
 applications are graphs composed of only four constructs: individual
 operators, pipe\-lines of operators, feedback loops, and split-merge
-topologies that implement task parallelism. The StreamIt compiler
+topologies that implement task parallelism. The \name{StreamIt} compiler
 determines a repeating steady-state schedule, then exploits that for
 optimizations such as operator fusion and data parallelism.
 
 \emph{Big-Data Streaming} languages focus on large-scale stream
 processing applications with a variety of data and processing
-requirements. An example is \textsf{\small SPL}~\cite{hirzel_schneider_gedik_2017} which offers parallelism across both multi-core machines and
-multi-machine clusters. SPL addresses a variety of data requirements
-via rich data types and assorted parsing operators. And SPL addresses
+requirements. An example is \name{SPL}~\cite{hirzel_schneider_gedik_2017} which offers parallelism across both multi-core machines and
+multi-machine clusters. \name{SPL} addresses a variety of data requirements
+via rich data types and assorted parsing operators. And \name{SPL} addresses
 a variety of processing requirements by letting programmers write new
 first-class streaming operators in their language of choice.
 
@@ -46,7 +46,7 @@ first-class streaming operators in their language of choice.
 high-level events from a sequence of low-level events in a
 stream. CEP is usually implemented via some form of automaton. Given
 that regular expressions are the most popular surface language for
-automatons, \textsf{\small Match\-Regex} uses regular expressions for patterns over
+automatons, \name{Match\-Regex} uses regular expressions for patterns over
 streams~\cite{hirzel_2012}. Low-level events are detected via simple
 predicates. In addition, aggregation functions over events serve to
 both guide and summarize matches.
@@ -55,14 +55,14 @@ both guide and summarize matches.
 upon variables whose values change subject to streaming data, and
 propagate any updates to the result of the computation. Reactive
 programming is analogous to the behavior of spreadsheet formulas, and
-ActiveSheets takes that analogy to its logical
+\name{ActiveSheets} takes that analogy to its logical
 conclusion~\cite{hirzel_et_al_2016}. Besides combining spreadsheets
-and streams, ActiveSheets also augments them with time-based windows,
+and streams, \name{ActiveSheets} also augments them with time-based windows,
 key-based partitioning, and an optimized implementation.
 
 \emph{Controlled Natural Languages} (CNLs) are artificial languages
 (such as programming languages) designed to look like natural
-languages (such as English).  The META platform provides a CNL for
+languages (such as English).  The \name{META} platform provides a CNL for
 event-condition-action rules over event
 streams~\cite{arnold_et_al_2016}. CNLs can be read and understood by
 any speakers of the corresponding natural language even without
