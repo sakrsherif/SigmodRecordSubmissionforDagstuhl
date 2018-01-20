@@ -4,15 +4,15 @@ Based on the definitions and survey from the corresponding tutorial
 (see Section~\ref{sec:tut_lang}), this working group identified and
 described three challenges faced by stream processing languages.
 
-\emph{Variety of data models} is a challenge for stream processing
-languages. A data model organizes elements of data with respect to
+\para{Variety of Data Models.}
+A data model organizes elements of data with respect to
 their semantics, their logical composition into data structures, and
 their physical representation. Producers and consumers of streams to
 and from a streaming application dictate data models it must handle,
 and the application's own conversion and processing needs drive
 additional data-model variety.  There is no consensus on the definition of a stream
-data item. At one extreme, in \textsf{StreamIt}, each data item is a simple
-number~\cite{thies_et_al_2002}, while at the other extreme, \textsf{C-SPARQL}
+data item. At one extreme, in \name{StreamIt}, each data item is a simple
+number~\cite{thies_et_al_2002}, while at the other extreme, \mbox{\name{C-SPARQL}}
 streams entire self-describing graphs~\cite{barbieri_et_al_2009}.
 Streaming languages have so far failed to consolidate on a unified data model
 because data-model variety is a difficult challenge.
@@ -22,7 +22,7 @@ model affects the speed of serialization, transmission, compression,
 and dynamic checks for the presence or absence of certain fields, and
 because the online setting leaves no time for separate batch data
 integration. Some stream processing languages are designed around
-their data model, e.g., CQL on tuples~\cite{arasu_babu_widom_2006} or
+their data model, e.g., \name{CQL} on tuples~\cite{arasu_babu_widom_2006} or
 path expressions on XML trees~\cite{diao_et_al_2002}. Furthermore, the
 data model enables streaming-language compilers to provide helpful
 error messages and optimizations. The goal is for streaming languages to let the programmer use the
@@ -31,17 +31,17 @@ compiler choose the best physical representation. Metrics of success
 include the expressive power of the language along with its throughput,
 latency, and resource consumption.
 
-\emph{Veracity with simplicity} is a challenge for stream processing
-languages. Veracity means producing accurate and factual results, and
+\para{Veracity with Simplicity.}
+Veracity means producing accurate and factual results, and
 simplicity means avoiding unnecessary language complexity. There are
 several reasons why streaming veracity is hard. Sensors producing
 input data have limited precision, energy, and memory. In
 long-running and loosely-coupled streaming applications,
-sources come and go. And approximate stream
+sources come and go. And approximate streaming
 algorithms~\cite{babcock_et_al_2002} and stream
 mining~\cite{gaber_zaslavsky_krishnaswamy_2005} introduce additional
 uncertainty. This is compounded by the lack of ground truth in an
-online setting, and by the difficulty of anticipating and testing
+online setting and by the difficulty of anticipating and testing
 every eventuality.
 
 Veracity causes streaming-specific issues, since it requires accurate
@@ -63,24 +63,25 @@ maximize one set of metrics while satisficing a threshold on the
 others, or one can seek Pareto-optimal
 solutions~\cite{zhang_hirzel_grove_2016}.
 
-\emph{Adoption} is a challenge for stream processing languages: while
+\para{Adoption.} While
 there are many languages, none have reached broad acceptance and use.
 The community should care about the adoption of streaming languages
-because it would drive the adoption of streaming technologies in general.
+because it would drive adoption of streaming technologies in general.
 A widely-adopted language is more attractive for students to learn,
 leading to a bigger pool of skilled people to hire for companies.
-Furthermore, a widely-adopted language would drive more
+Furthermore, a widely-adopted language would lead to more
 mature libraries, tools, benchmarks, and optimizations. The lack of a
-dominant language indicates that adoption is a difficult goal. Streaming as a domain is a young, fast-moving and prone to vendor
-lock-in. Meanwhile, there is, yet, neither consensus on a
+dominant language indicates that adoption is a difficult goal. Streaming as a domain is young, fast-moving, and prone to vendor
+lock-in. Meanwhile, there is so far neither a consensus on a
 streaming language nor even a consensus on which language
 features are the most important and which can be omitted to reduce
 complexity. Furthermore, several recent streaming systems have a DSEL,
 which tends to have less well-isolated semantics and more
 host-language dependencies than a stand-alone DSL. The goal is for the community to agree upon one or a few languages that get
-widely adopted. Metrics for language adoption include lines of code,
+widely adopted. Metrics for the adoption of a streaming language include
+the number of applications written in it,
 as well as mentions in resumes, job posting, courses, and support
-forums. Adoption can also be measured by the number of systems that
+forums. Adoption can also be measured by the number of streaming systems that
 support a language, open-source and open-governance implementations,
 and ultimately, an industry standard.
 \iffalse
