@@ -2,55 +2,55 @@
 
 In this working group, participants discussed characteristics and open
 challenges of stream processing systems. The discussions mainly focused on
-the topics of state management, transactions and pushing computation to the edge.
+the topics of state management, transactions, and pushing computation to the edge.
 
-\emph{State management} Modern streaming systems are stateful, which means they can remember the state
+\para{State Management.} Modern streaming systems are stateful, which means they can remember the state
 of the stream to some extent. A simple example is a counting operator that
 counts the number of elements seen so far. While even a simple state like this
 poses several challenges in streaming setups (such as fault tolerance and
 consistency), many use cases require more advanced state management
 capabilities. An example is the combination of streaming and batch data. This
 is for example required when combining the history of a user with her current
-activity or when finding matching advertisement campaigns with current activity
-a popular example of such a setup is modeled in the \textsf{Yahoo! Streaming
+activity or when finding matching advertisement campaigns with current activity;
+a popular example of such a setup is modeled in the \name{Yahoo!\ Streaming
 Benchmark}~\cite{Chintapalli2016BenchmarkingSC}. Today, most setups deal with
 such challenges by combining different systems (e.g., a key value store for
-state and a streaming system for processing), however, it is desirable to have
+state and a streaming system for processing). However, it is desirable to have
 both in a single system for consistency and manageability reasons.
 
-State can be considered the equivalent of a table in a database system. As a
-result, besides the combination of stream and state, several high level
+State can be considered the equivalent of a table in a database system~\cite{arasu_babu_widom_2006}. As a
+result, besides the combination of stream and state, several high-level
 operations can be identified: conversion of streams to tables (e.g., storing
 a stream), conversion of tables to streams (e.g., scanning a table), as well
-operations only on tables or streams (joins, filters, etc.). The management of
-state opens the design space in between existing stream processing systems and
-database systems, which has only been partially explored by current systems.
+operations only on tables or streams (joins, filters,~etc.). The management of
+state opens the design space between existing stream processing systems and
+data\-base systems, which has only been partially explored by current systems.
 In contrast to database systems, stream systems typically operate in a reactive
 manner, i.e., they have no control over the incoming data stream, specifically,
 they do not control and define the consistency and order semantics in the
 stream. This requires advanced notions of time and order as for example
-specified for streams in the dataflow model~\cite{akidau2015dataflow}, for state and stream
+specified for streams in the dataflow model~\cite{akidau2015dataflow};
+the combination of stream and state,
 this remains an open field of research.
 
 
-\emph{Transactions} A further discussion topic was transactions in stream processing systems.
+\para{Transactions.} A further discussion topic was transactions in stream processing systems.
 The main difference between traditional database transactions and stream
-processing transactions is that in databases the computation moves and
-data stays (in the system), in stream processing systems the computation stays
+processing transactions is that in data\-bases the computation moves and
+data stays (in the system), whereas in stream processing systems the computation stays
 and the data moves to the computation (and out again). Considering state management, the form of transactions as applied in databases
 can also be used in a stream processing system, if the state is managed in a
 transactional way. However, the operations on streams themselves can be
-transactional and then we can differentiate between single tuple transactions
-and multiple tuple transactions (possibly accessing multiple keys in a partitioned operator state space). For multiple tuple transactions, the
-transaction can only commit when all tuples are consumed. The tuples then have
+transactional and then we can differentiate between single-tuple transactions
+and multi-tuple transactions (possibly accessing multiple keys in a partitioned operator state space). Multi-tuple transactions can only commit when all tuples are consumed. The tuples then have
 to traverse the whole operator graph or at least the transactional subgraph. The semantics of transactions on streams is currently still an open
 field of research.
 
-By \emph{pushing computation to the edge} of a network, stream processing can
+\para{Pushing computation to the edge} of a network enables stream processing to
 be highly distributed and decentralized. This is very useful when preprocessing
-or filtering can be done without a centralized view of the data. This is especially true in
+or filtering can be done without a centralized view of the data, especially in
 setups with high communication cost or slow connections (e.g., mobile
-connections), it makes sense to not send all data to a central server, but
+connections): it makes sense to not send all data to a central server, but
 distribute the computation. A logical first step is filtering, but aggregations
 and even more complex operations can be pushed to the edge, if possible. Many
 modern scenarios prohibit centralized data storage, which further encourages
