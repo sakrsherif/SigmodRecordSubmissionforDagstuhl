@@ -1,0 +1,55 @@
+From: Yanlei Diao <yanlei@cs.umass.edu>
+Date: Thu, Jul 5, 2018 at 1:54 PM
+Subject: [SIGMOD Record] A decision has been made for paper #20180002.0
+To: Sherif Sakr <ssakr@cse.unsw.edu.au>
+Cc: Tasos Kementsietsidis <akement@google.com>
+
+Dear Sherif Sakr
+
+A decision has been made about paper #20180002.0.  The editor-in-chief has
+decided to accept this paper with minor changes.  You may now submit a
+revision for this paper.
+
+Some notes about this decision are listed below.  For additional
+information, please log in and view the paper in the RECESS system at
+http://sigmod.hosting.acm.org/record/.
+
+Public Notes
+----------------------
+Dear authors,
+
+The Associate Editor in charge of the article has recommended acceptance
+with minor revision. Please read the review carefully, and resubmit with
+the suggested changes, in particular, to reduce the article to 4 pages,
+which is the limit on the reports that we publish at the SIGMOD Record.
+
+When submitting the revised article, please 
+1) submit a cover letter explaining all the changes that have been made.
+2) double check all the formatting requests, e.g., 1 inch margin on all
+   sides, font 10 for the entire article, and the page size set to Letter
+   (8.5 inch by 11 inch).
+
+If you can submit the camera-ready by July 15, I can arrange it to appear
+in the June 2018 issue (which is delayed due to some copyright issue).
+
+Sincerely,
+
+Yanlei Diao
+Editor-in-Chief, SIGMOD Record
+
+=========================================================================
+Reviews from RECESS system:
+=========================================================================
+
+The paper presents an overview of a Dagstuhl seminar on Big Stream
+Processing by outlining the tutorial presented as well as the results of
+the two respective working groups. This is a rich domain and a lot of work
+has been done in multiple sub-areas, which is obvious from the scope of
+the workshop. The report is a bit too long for a workshop report and it
+would be helpful if it was reduced to around 4 pages. Beyond that, there
+are only minor corrections necessary:
+
+On page 4, the authors say "the combination of stream and state, this
+remains an open field of research." The sentence doesn't parse right and
+should be re-written to something like "the combination of stream and
+state still remains an open field of research."
