@@ -6,24 +6,47 @@ In sports and entertainment we described specific characteristics of IoT streami
 \fi
 
 \para{Sports and Entertainment.}
-The example applications of this domain provide real-time narratives about highlights that are happening during a live event. This way, it is not necessary to watch the whole event, but one can be notified in real-time about such highlights based on insights derived from sensor data. For instance, in \emph{basketball}, sensors that have been successfully used in commercial deployments\footnote{\url{https://t.co/ZkQjQwXw13}} include smart shirts worn by players, microphones deployed to monitor the audience,  cameras, and wristbands. Data from these sensors in combination with play-by-play data can be used to recognize behavior, emotions, activities, actions, pressure, and other physical aspects of the game. These insights are related to players, teams, fans, and family preferably in the form of semantic data streams. Semantic data access decouples applications from data providers and enables domain experts to better work with the data, e.g., for generating content and distributing it via social media.
+The example applications of this domain provide real-time narratives about highlights during a live event. This way, it is not necessary to watch the whole event, but one can be notified in real-time about such highlights based on insights derived from sensor data. For instance, in \emph{basketball}, sensors that have been successfully used in commercial deployments\footnote{\url{https://t.co/ZkQjQwXw13}} include smart shirts worn by players, microphones deployed to monitor the audience,  cameras, and wristbands. Data from these sensors in combination with play-by-play data can be used to recognize behavior, emotions, activities, actions, pressure, and other physical aspects of the game. These insights are related to players, teams, fans, and family preferably in the form of semantic data streams. Semantic data access decouples applications from data providers and enables domain experts to better work with the data, e.g., for generating content and distributing it via social media.
 %Figure Basketball ?
 
-Another example is \emph{mixed martial arts}\footnote{\url{https://youtu.be/vataVq9gY_o}}, in which sensors such as cameras, smart floors, and sensors embedded in fighters' gloves\footnote{\url{http://bit.ly/2D4lCqD}} are used to determine a range of insights including punch strength and stress levels of each fighter (Figure~\ref{FIG:FightStreams}). In this example, it is important that insights can be delivered in real-time without noticeable delay compared to a broadcast of the fight.
+Another example is \emph{mixed martial
+  arts}\footnote{\url{https://youtu.be/vataVq9gY_o}}, where cameras
+and sensors embedded in floors and fighters'
+gloves\footnote{\url{http://bit.ly/2D4lCqD}} offer insights including
+punch strength and stress levels of each fighter
+(Figure~\ref{FIG:FightStreams}). In this example, it is important that
+insights can be delivered in real-time without noticeable delay
+compared to a broadcast of the fight.
 
 \begin{figure}[t]
 \centering
 \includegraphics[scale=0.142]{pictures/DP6L8S9XkAYFMCw.jpg}
+\vspace*{-2mm}
 \captionof{figure}{Sample IoT data streams in mixed martial arts.}
 \label{FIG:FightStreams}
+\vspace*{-5mm}
 \end{figure}
 
-In \emph{professional bull riding}, sensors are attached to riders and bulls and used to quantify the bull's and rider's performance\footnote{\url{http://bit.ly/2CXpc2g}}. As this information is, among other things, used for automatic scoring, it is of particular importance that analytic results are available as soon as the ride is finished. Similarly, a range of wearable sensors are used for creating event highlights for participants at \emph{mass sport events} such as the Color Run\footnote{\url{https://thecolorrun.com/}}. In the \textsf{\small CPaaS.io} project\footnote{\url{http://www.cpaas.io}}, an application has been developed to use action cameras and fitness bands to automatically detect event highlights based on the the runner's activity, emotions, dance energy levels, and many more metrics. In this application, real-time aspects include scenarios in which event highlights are being directly sent to friends of the participants.
+In \emph{professional bull riding}, sensors are attached to riders and
+bulls and used to quantify the bull's and rider's
+performance\footnote{\url{http://bit.ly/2CXpc2g}}. As this information
+is, among other things, used for automatic scoring, it is of
+particular importance that analytic results are available as soon as
+the ride is finished. Similarly, a range of wearable sensors are used
+for creating event highlights for participants at \emph{mass sport
+  events} such as the Color
+Run\footnote{\url{https://thecolorrun.com/}}. The \textsf{\small
+  CPaaS.io} project\footnote{\url{http://www.cpaas.io}} uses action
+cameras and fitness bands to automatically detect event highlights
+based on the the runner's activity, emotions, dance energy levels, and
+many more metrics. In this application, real-time aspects include
+scenarios in which event highlights are being directly sent to friends
+of the participants.
 
 \para{Industry 4.0.}
 For this domain, the tutorial presented applications around \emph{predicting energy peaks} and \emph{predictive maintenance}. In principle, predicting energy peaks can help in reducing energy costs as electricity bills of industrial consumers contain a pricing component that incurs higher charges for higher peaks of electrical load. For small-to-medium enterprises, avoiding such peak load events can lead to significant savings\footnote{\url{http://bit.ly/2DjhvUh}}. This can be achieved by predicting expected peaks, e.g.,\ up to 30 minutes ahead of time and taking precautionary measures such as temporarily switching off high energy consumers such as air conditioning.
 
-For \emph{predictive maintenance}, the tutorial presented an application for detecting anomalous machine states in order to reduce maintenance costs. For instance, in injection molding machines, a sudden high energy consumption may indicate that an injection nozzle is jammed and checking the machine may avoid further damage. The tutorial reported about the DEBS Grand Challenge 2017~\cite{gulisano_et_al_2017} that has been designed to objectively measure some of these requirements using pre-defined machine learning algorithms and RDF streaming data. The main KPI for the challenge was latency. The original data set has been provided by \textsf{Weidmüller}\footnote{\url{http://www.weidmueller.de}}. For reasons of confidentiality, the organizers provided a mimicked data set\footnote{\url{https://hobbit.iminds.be/dataset/weidmuller}}. The systems under test were evaluated using the \textsf{H\small OBBIT} benchmarking platform\footnote{\url{http://bit.ly/2muMNkY}} that ensured the objectivity of quantifying the performance of distributed stream processing pipelines. \iffalse As we used a pre-defined algorithm for detecting anomalies, we expected full correctness from all systems and compared latency and also measured throughput.\fi Overall, 7 out of 14 participating teams in the challenge passed the correctness test. The fastest system~\cite{amariei_et_al_2017} achieved an average latency of about 39ms. The DEBS Grand Challenge 2017 benchmark is openly available as part of the \textsf{H\small OBBIT} platform.
+For \emph{predictive maintenance}, the tutorial presented an application for detecting anomalous machine states to reduce maintenance costs. For instance, in injection molding machines, a sudden high energy consumption may indicate that an injection nozzle is jammed and checking the machine may avoid further damage. The tutorial reported about the DEBS Grand Challenge 2017~\cite{gulisano_et_al_2017} that has been designed to objectively measure some of these requirements using pre-defined machine learning algorithms and RDF streaming data. The main KPI for the challenge was latency. The original data set has been provided by \textsf{Weidmüller}\footnote{\url{http://www.weidmueller.de}}. For reasons of confidentiality, the organizers provided a mimicked data set\footnote{\url{https://hobbit.iminds.be/dataset/weidmuller}}. The systems under test were evaluated using the \textsf{H\small OBBIT} benchmarking platform\footnote{\url{http://bit.ly/2muMNkY}} that ensured the objectivity of quantifying the performance of distributed stream processing pipelines. \iffalse As we used a pre-defined algorithm for detecting anomalies, we expected full correctness from all systems and compared latency and also measured throughput.\fi Overall, 7 out of 14 participating teams in the challenge passed the correctness test. The fastest system~\cite{amariei_et_al_2017} achieved an average latency of about 39ms. The DEBS Grand Challenge 2017 benchmark is openly available as part of the \textsf{H\small OBBIT} platform.
 
 %Systems under test had to correctly answer a pre-defined query that describes an anomaly in the expected machine states. The task involved to find k cluster centers in a sliding window in order to identify the machine states. As a next step, it was required to build a Markov model over the sliding window and use it to determine the probability of the last N state transitions. Finally, if the probability is below a given threshold the system under test had to report an anomaly. Machines could dynamically leave and join.
 

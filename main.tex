@@ -3,6 +3,9 @@
 \usepackage{alltt}
 \usepackage{balance}
 \usepackage[hyphens]{url}
+\def\UrlFont{\scriptsize}
+%\newcommand*{\url}[1]{\textsf{\scriptsize #1}}
+\usepackage[para]{footmisc}
 
 \usepackage{etoolbox}
 \usepackage{graphicx}
@@ -78,24 +81,22 @@ stream processing, focusing on applications, systems, and languages.
 \input{overview}
 \section{Tutorials}
 The tutorials of the seminar aimed at sharing knowledge between
-attendees from different communities, thus offering insights and
-perspectives that enriched the group discussions. This section gives
-an overview of the material presented at tutorials.
+attendees from different communities, offering perspectives for group
+discussions.
 
 \input{Tutorial-Applications}
 \input{Tutorial-Systems}
 \input{Tutorial-Languages}
 \section{Working Groups}
 During the seminar, two separate working groups formed to discuss
-current challenges in the topics ``stream processing applications and systems''
-and ``stream processing languages''.
+current challenges in streaming applications and systems and in
+streaming languages.
 
 \input{WG-AppSystems}
 \input{WG-Languages}
 \input{conclusion}
 \input{acknowledgements}
 \bibliographystyle{abbrv}
-\vspace*{-2mm}
 \balance
 \bibliography{biblio}
 
