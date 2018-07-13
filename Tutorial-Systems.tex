@@ -10,15 +10,15 @@ This tutorial started by identifying the most differentiating characteristic of 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.4 \textwidth]{pictures/streamstack.pdf}
-\vspace*{-2mm}
+\vspace*{-1mm}
 \caption{The Stack of Scalable Stream Processing}
 \label{fig:streamstack}
-\vspace*{-5mm}
+\vspace*{-2mm}
 \end{figure}
 
 \para{Stream Storage.} Data dissemination from consumers to producers is a problem that has been revisited multiple times with different assumptions and needs in mind. In the context of data streaming, direct communication (e.g., TCP channels) was not an option despite low-latency requirements, since it required application ingestion to be actively in sync with data creation while also lacking the transparency and durability of today's cloud computing ecosystem. Furthermore, message brokers (e.g., \name{RabbitMQ}, \name{JMS}) were insufficient for the needs of supporting multiple applications and configurations (i.e., task parallelism). Thus, a class of open-source stream storage systems based on \emph{partitioned replicated logs} was introduced, led by \name{Apache Kafka}~\cite{kreps2011kafka} and more recently \name{Pravega}\footnote{\url{http://pravega.io/}} as well as proprietary cloud services such as \name{Amazon Kinesis}\footnote{\url{https://aws.amazon.com/kinesis/}}. Partitioned replicated logs provide high sequential read and write throughput by exploiting copy-on-write and strict data-parallel access by distinct consumers. Furthermore, they perform offset-based bookkeeping of data access for the purposes of data reprocessing, reconfiguration, and roll-backs, among others. Finally, more effort has been devoted to supporting transactional logging and repartitioning, allowing for seamless integration with modern stream compute systems.
 
-\para{Stream Compute.} We further divide compute into \emph{programming models} and \emph{runtime engines}. In terms of programming model support, there has been a shift from purely event-based, compositional models (e.g., \name{Apache Storm} \cite{toshniwal_et_al_2014}) to more declarative representations~\cite{akidau2015dataflow,carbone_et_al_2015,zaharia_et_al_2013}. Currently, most standard APIs are fluid, functional, and allow declaring relational transformations (e.g., joins, filters) while providing first-class support for persistent partitioned state, stream windows, and event-time prog\-ress using watermarks. The latter allowed application logic to incorporate timers that operate consistently on different time domains (e.g., origin-time), thus allowing out-of-order processing~\cite{li2008out},  a concept popularized, among others, by Google \cite{millwheel,akidau2015dataflow}.
+\para{Stream Compute.} We further divide compute into \emph{programming models} and \emph{runtime engines}. In terms of programming model support, there has been a shift from purely event-based, compositional models (e.g., \name{Apache Storm} \cite{toshniwal_et_al_2014}) to more declarative representations~\cite{akidau2015dataflow,carbone_et_al_2015,zaharia_et_al_2013}. Currently, most standard APIs are fluid, functional, and allow declaring relational transformations (e.g., joins, filters) while providing first-class support for persistent partitioned state, stream windows, and event-time prog\-ress using watermarks. The latter allowed application logic to incorporate timers that operate consistently on different time domains (e.g., origin-time), thus allowing out-of-order processing~\cite{li2008out}, a concept popularized e.g.\ by \name{Beam}~\cite{akidau2015dataflow}.
 
 With respect to runtime engines, we observe converging commonalities
 such as a dataflow execution model, explicit locally embedded state
