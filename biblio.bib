@@ -7,9 +7,10 @@
 
 @Article{arasu_babu_widom_2006,
   author = "Arasu, Arvind and Babu, Shivnath and Widom, Jennifer",
-  title = "The {CQL} continuous query language: semantic foundations and query execution",
+  title = "The {CQL} Continuous Query Language: Semantic Foundations and Query Execution",
   year = 2006,
   journal = "VLDB J.",
+  pages = "121--142",
   volume = 15,
   number = 2}
 
@@ -100,6 +101,7 @@
 @InProceedings{kulkarni_et_al_2015,
   author = "Kulkarni, Sanjeev and others",
   title = "Twitter {Heron}: Stream Processing at Scale",
+  pages = "239--250",
   booktitle = "SIGMOD",
   year = 2015}
 
@@ -239,7 +241,9 @@
 @article{abadi2003aurora,
   title={Aurora: A New Model and Architecture for Data Stream Management},
   author={Abadi, Daniel J and others},
-  journal={VLDBJ},
+  journal = "VLDB J.",
+  volume = 12,
+  number = 2,
   year={2003}
 }
 
@@ -247,13 +251,14 @@
 title = {Mill{W}heel: Fault-Tolerant Stream Processing at Internet Scale},
 author  = {Tyler Akidau and others},
 year  = 2013,
-booktitle = {VLDB}
+  booktitle = "VLDB"
 }
 
-@article{akidau2015dataflow,
+@InProceedings{akidau2015dataflow,
   title={The Dataflow Model: A Practical Approach to Balancing Correctness, Latency, and Cost in Massive-scale, Unbounded, Out-of-order Data Processing},
   author={Akidau, Tyler and others},
-  journal={VLDB},
+  booktitle = "VLDB",
+  pages = "1792--1803",
   year={2015}
 }
 
@@ -265,11 +270,11 @@ booktitle = {VLDB}
   publisher={Stanford InfoLab}
 }
 
-@article{state2017carbone,
+@InProceedings{state2017carbone,
   title={State Management in {Apache} {Flink}: Consistent Stateful Distributed Stream Processing},
   xauthor={Carbone, Paris and others},
   author={Carbone, Paris and Ewen, Stephan and Fora, Gyula and Haridi, Seif and Richter, Stefan and Tzoumas, Kostas},
-  journal={PVLDB},
+  booktitle = "VLDB",
   year={2017}
 }
 
@@ -282,9 +287,10 @@ booktitle = {VLDB}
 }
 
 @inproceedings{chandrasekaran2003telegraphcq,
-  title={Telegraph{CQ}: continuous dataflow processing},
   author={Chandrasekaran, Sirish and others},
-  booktitle={SIGMOD},
+  title = "{TelegraphCQ}: Continuous Dataflow Processing for an Uncertain World",
+  pages = "668--668",
+  booktitle = "CIDR",
   year={2003}
 }
 
@@ -309,7 +315,7 @@ booktitle = {VLDB}
 @InProceedings{jacques2016consistent,
   title={Consistent Regions: Guaranteed Tuple Processing in IBM Streams},
   author={Jacques-Silva, Gabriela and others},
-  booktitle={VLDB},
+  booktitle = "VLDB",
   xvolume={9},
   xnumber={13},
   year={2016}
@@ -322,12 +328,11 @@ booktitle = {VLDB}
   organization={NetDB}
 }
 
-@article{li2008out,
-  title={Out-of-order processing: a new architecture for high-performance stream systems},
+@InProceedings{li2008out,
+  title={Out-of-Order Processing: A New Architecture for High-performance Stream Systems},
   author={Li, Jin and others},
-  journal={PVLDB},
-  volume={1},
-  number={1},
+  booktitle = "VLDB",
+  xpages = "274--288",
   year={2008}
 }
 
@@ -350,6 +355,6 @@ booktitle = {VLDB}
 @inproceedings{Chintapalli2016BenchmarkingSC,
   title={Benchmarking Streaming Computation Engines: {Storm}, {Flink} and {Spark} {Streaming}},
   author={Sanket Chintapalli and others},
-  booktitle={IPDPSW},
+  booktitle= "IPDPSW",
   year={2016}
 }
